@@ -122,7 +122,7 @@ exports.createReview = async (req, res, next) => {
 
     let avg = 0;
     product.reviews.forEach(rev => {
-        avg += rev.raging
+        avg += rev.rating
     })
 
     product.rating = avg / product.reviews.length

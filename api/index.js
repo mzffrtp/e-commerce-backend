@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const db = require("./config/db");
 const productRouter = require("./routes/productRoutes");
+const userRouter = require("./routes/userRoutes");
 const cloudinary = require('cloudinary').v2;
 
 dotenv.config();
@@ -28,10 +29,22 @@ app.use(cookieParser())
 
 //! routes
 app.use("/", productRouter)
+app.use("/", userRouter)
+
 
 //!database
 db();
 
+//!Global error management
+app.use((err, req, res, next) => {
+    const errStatus = err.status || 500;
+    const errMessage = err.message || "Soory, something went wrong!"
+
+    return res.status(errStatus).json({
+        statusCode: errStatus,
+        message: errMessage
+    });
+});
 const PORT = 4000;
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);

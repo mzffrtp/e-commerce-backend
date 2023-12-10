@@ -2,5 +2,7 @@
 
 - Backend:
   - Cors, bodyparser,
-  - cokkie parser,
+  - cookie parser,
   - cloudinary ---> for create and delete product pictures
+  - bcrypt
+  - jsonwebtoken
