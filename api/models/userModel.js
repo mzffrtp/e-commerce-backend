@@ -33,6 +33,8 @@ const userSChema = new mongoose.Schema({
         enum: ["user", "admin", "guest"],
         default: "guest",
     },
+    resetPasswordToken: String,
+    resetPasswordTokenExpires: Date
 }, { timestamps: true })
 
 const User = mongoose.model("User", userSChema);
