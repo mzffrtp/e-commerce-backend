@@ -1,4 +1,4 @@
-const Product = require("../models/productModel");
+const Product = require("../models/productModel.js");
 const ProductFilter = require("../utils/productFilter.js")
 const cloudinary = require('cloudinary').v2;
 
